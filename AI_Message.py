@@ -6,18 +6,11 @@ messages.append(HumanMessage(content="add 2 and 5 and then mulitply by 10 and di
 
 #for m in messages:
  #   m.pretty_print()
-
 from langchain_ollama import OllamaLLM
-
 llm = OllamaLLM(model="llama3.1:latest")
-
 max_iterations =1
 iteration = 0
-
-while iteration < max_iterations:
 result = llm.invoke(messages)
-if result == messages[-1].content:
-break
 messages.append(AIMessage(content=result, name="Model"))
 iteration += 1
 print(result)
